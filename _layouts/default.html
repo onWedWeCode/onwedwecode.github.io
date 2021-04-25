@@ -11,7 +11,17 @@ layout: compress
             {{ content }}
         </div>
          <div class="col-lg-12" id="newsletter_footer">
-               {%- include blog_newsletter.html -%}
+            {%- if site.github -%}
+            <li class="list-inline-item">
+              <a href="https://github.com/{{ site.github_username }}" title="GitHub">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">GitHub</span>
+            </a>
+            </li>
+          {%- endif -%}
          </div>
         {%- include footer.html -%}
      <script>
