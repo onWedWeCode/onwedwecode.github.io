@@ -11,7 +11,18 @@ layout: compress
             {{ content }}
         </div>
          <div class="col-lg-12" id="newsletter_footer">
-            {%- if site.github -%}
+          {%- if site.social-network-links.linkedin -%}
+            <li class="list-inline-item">
+              <a href="https://linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">LinkedIn</span>
+            </a>
+            </li>
+          {%- endif -%}
+          {%- if site.github -%}
             <li class="list-inline-item">
               <a href="https://github.com/{{ site.github_username }}" title="GitHub">
                 <span class="fa-stack fa-lg" aria-hidden="true">
@@ -22,11 +33,17 @@ layout: compress
             </a>
             </li>
           {%- endif -%}
-          <footer>
-            <p> Powered by<a href="https://github.com/sujaykundu777/devlopr-jekyll"> devlopr jekyll</a>. Hosted at <a href="https://pages.github.com">Github</a>. Subscribe via
-                <a href="{{ " /feed.xml " | prepend: site.baseurl }}">RSS</a>
-            </p>
-        </footer>
+          {%- if site.social-network-links.email -%}
+            <li class="list-inline-item">
+              <a href="mailto:{{ site.email }}" title="Email me">
+                <span class="fa-stack fa-lg" aria-hidden="true">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                </span>
+                <span class="sr-only">Email me</span>
+            </a>
+            </li>
+          {%- endif -%}
          </div>
         {%- include footer.html -%}
      <script>
